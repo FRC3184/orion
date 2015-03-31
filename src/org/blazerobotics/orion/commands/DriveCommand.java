@@ -11,6 +11,7 @@
 
 package org.blazerobotics.orion.commands;
 
+import edu.wpi.first.wpilibj.DriverStation;
 import edu.wpi.first.wpilibj.command.Command;
 
 import org.blazerobotics.orion.Robot;
@@ -49,7 +50,7 @@ public class DriveCommand extends Command {
     	if ((Math.abs(lastThrottle) < 0.1 && Math.abs(Robot.oi.getJoystickLeft().getY()) > 0.1) || (Math.abs(turn) > 0.1)) {
     		startAngle = Robot.genericSensorSubsystem.getAngle();
     	}
-    	System.out.println(Robot.genericSensorSubsystem.getAngle());
+    	//DriverStation.reportError(Robot.genericSensorSubsystem.getAngle() + "\n", false);
     	if (Robot.prefs.getBoolean("useArcade", false)) {
     		
     		if (Math.abs(turn) < 0.1 && Math.abs(Robot.oi.getJoystickLeft().getY()) > 0.1 && Math.abs(lastTurn) < 0.1) {

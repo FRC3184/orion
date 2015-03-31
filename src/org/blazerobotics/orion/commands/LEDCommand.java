@@ -13,7 +13,7 @@ public class LEDCommand extends Command {
     private int tick;
 
 	public LEDCommand() {
-        requires(Robot.ledSubsystem);
+        //requires(Robot.ledSubsystem);
     }
 
     // Called just before this Command runs the first time

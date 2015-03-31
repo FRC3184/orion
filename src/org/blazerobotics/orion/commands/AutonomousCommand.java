@@ -24,12 +24,12 @@ public class  AutonomousCommand extends CommandGroup {
     public AutonomousCommand() {
     	addSequential(new CanArmTimedCommand(2.6, 0.3, false));
     	addSequential(new WaitCommand(1));
-    	addSequential(new DriveToPointCommand(100_000 * -1.4, 0.5, 1.5)); //feet ish
+    	addSequential(new DriveToPointCommand(100_000 * -10, 0.5, 3)); //feet ish
     	//addSequential(new WaitCommand(1));
     	addSequential(new CanArmTimedCommand(0.8, -1, true));
     	//addSequential(new WaitCommand(1));
     	addParallel(new CanArmTimedCommand(10, -1, false));
-    	addSequential(new DriveToPointCommand(100_000 * 13, 0.7, 0));
+    	addSequential(new DriveToPointCommand(100_000 * 20, 0.7, 0));
     	
     }
 

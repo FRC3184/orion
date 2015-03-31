@@ -3,6 +3,7 @@ package org.blazerobotics.orion.commands;
 import org.blazerobotics.orion.Robot;
 import org.blazerobotics.orion.util.MathUtil;
 
+import edu.wpi.first.wpilibj.DriverStation;
 import edu.wpi.first.wpilibj.PIDController;
 import edu.wpi.first.wpilibj.PIDOutput;
 import edu.wpi.first.wpilibj.PIDSource;
@@ -57,8 +58,8 @@ public class DriveToPointCommand extends Command {
 
 			@Override
 			public double pidGet() {
-				// TODO Auto-generated method stub
-				return MathUtil.average(Robot.driveSubsystem.leftEncoder.getDistance(), Robot.driveSubsystem.rightEncoder.getDistance());
+				
+				return MathUtil.average(Robot.driveSubsystem.leftEncoder.getDistance(), -Robot.driveSubsystem.rightEncoder.getDistance());
 			}}, new PIDOutput() {
 			@Override
 			public void pidWrite(double output) {
@@ -76,7 +77,6 @@ public class DriveToPointCommand extends Command {
 
 	@Override
 	protected void execute() {
-		
 		Robot.driveSubsystem.arcadeDrive(throttle*max, turn);
 		k = true;
 		

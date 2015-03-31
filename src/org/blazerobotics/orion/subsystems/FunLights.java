@@ -17,7 +17,7 @@ public class FunLights extends Subsystem {
 	public FunLights() {}
 	
     public void initDefaultCommand() {
-    	setDefaultCommand(new LEDCommand());
+    	//setDefaultCommand(new LEDCommand());
     }
     
     public Alliance getAlliance() {
