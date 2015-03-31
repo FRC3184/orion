@@ -10,9 +10,13 @@ public class IntakeBarSubsystem extends Subsystem {
 
 	private Talon intakeMotor = RobotMap.intakeBarMotor;
 	
+	public IntakeBarSubsystem() {
+		
+	}
+	
 	@Override
 	protected void initDefaultCommand() {
-		new IntakeBarCommand().start();
+		this.setDefaultCommand(new IntakeBarCommand());
 
 	}
 	public void setSpeed(double speed) {

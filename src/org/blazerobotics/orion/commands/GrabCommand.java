@@ -2,12 +2,14 @@ package org.blazerobotics.orion.commands;
 
 import org.blazerobotics.orion.Robot;
 
-import edu.wpi.first.wpilibj.DriverStation;
 import edu.wpi.first.wpilibj.command.Command;
 
-public class IntakeBarCommand extends Command {
-	public IntakeBarCommand() {
-		requires(Robot.intakeBarSubsystem);
+public class GrabCommand extends Command {
+	
+	int tick = 0;
+	
+	public GrabCommand() {
+		requires(Robot.grabSubsystem);
 	}
 
 	@Override
@@ -18,7 +20,11 @@ public class IntakeBarCommand extends Command {
 
 	@Override
 	protected void execute() {
-		Robot.intakeBarSubsystem.setSpeed(Robot.oi.joystickSpecial.getY());
+		tick++;
+		if (tick >= 10 && Robot.oi.joystickSpecial.getRawButton(2)) {
+			Robot.grabSubsystem.setGrab(!Robot.grabSubsystem.getGrab());
+			tick = 0;
+		}
 	}
 
 	@Override
